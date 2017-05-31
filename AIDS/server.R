@@ -11,6 +11,7 @@ library(ggplot2)
 library(plotly)
 library(rsconnect)
 library(shiny)
+library(gdata)
 
 #dataset for the SeattlePD
 
@@ -19,6 +20,7 @@ df <- age.data[-1,]
 prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
 new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
 deaths.data <- read.csv('data/deaths_HIV.csv', stringsAsFactors = FALSE)
+gdp.data <- read.xls('../data/GDP.xls', sheet = 1, header = TRUE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
