@@ -32,38 +32,41 @@ shinyUI(fluidPage(
         
       )),
       #Add once decided on data
-      sidebarLayout()
+      sidebarLayout(
+        sidebarPanel()
+      ),
+      mainPanel()
       
     ),
     tabPanel(
-      "Crime Concentration by Location"
+      "Crime Concentration by Location",
+      titlePanel(),
+      sidebarLayout(
+        sidebarPanel()
+      ),
+      mainPanel()
+    ),
+    tabPanel(
+      "Crime Concentration by Date/Time ",
+      titlePanel(),
+      sidebarLayout(
+        sidebarPanel()
+      ),
+      mainPanel()
       
     ),
     tabPanel(
-      "Crime Concentration by Date/Time "
-    ),
-    tabPanel(
-      "LMAOOOAAAAOAOAOAOAO"
+      "LMAOOOAAAAOAOAOAOAO",
+      titlePanel(),
+      sidebarLayout(
+        sidebarPanel()
+      ),
+      mainPanel()
     )
     
     
     
     
-  ),
-  
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
-    ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
-    )
   )
+  
 ))
