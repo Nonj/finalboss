@@ -37,12 +37,22 @@ shinyUI(fluidPage(
     ),
     
     tabPanel(
-      'Crime Concentration by Location',
-      titlePanel(),
-       sidebarLayout(
-         sidebarPanel()
-       ),
-       mainPanel()
+      'World Map',
+      titlePanel("World Map By Dataset"),
+      
+      radioButtons('data', ("Choose a dataset"),
+                   choices = list("Deaths" = 1, "Prevalence" = 2), 
+                   selected = 1),
+      
+      sidebarPanel(
+        selectInput('color.var', 'Choose a color for dataset', 
+                    choices = c("Purple" = 'rgb(75,55,130)', "Yellow" = 'rgb(240,240,51)', 
+                                "Green" = 'rgb(0,202,0)', "Red" = 'rgb(226,31,31)'))
+      ),
+      
+       mainPanel(
+         plotlyOutput("map")
+       )
     ),
     
     tabPanel(
@@ -55,15 +65,6 @@ shinyUI(fluidPage(
     ),
 
     tabPanel(
-      "LMAOOOAAAAOAOAOAOAO"
-    # titlePanel(),
-    #   sidebarLayout(
-    #     sidebarPanel()
-    #   ),
-    #   mainPanel()
-    # )
-    
-    tabPanel(
       "LMAOOOAAAAOAOAOAOAO",
       titlePanel(),
       sidebarLayout(
@@ -72,4 +73,4 @@ shinyUI(fluidPage(
       mainPanel()
     )
   )  
-)))
+))

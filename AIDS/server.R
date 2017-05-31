@@ -25,5 +25,8 @@ gdp.data <- read.xls('../data/GDP.xls', sheet = 1, header = TRUE)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
+  output$map <- renderPlotly({
+    return (buildWorldMap("desiredData", color.var)) #Makes the map with whatever data we want
+  })
   
 })
