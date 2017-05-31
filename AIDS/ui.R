@@ -21,45 +21,47 @@ shinyUI(fluidPage(
   
   
   navbarPage(
+    
     tabPanel(
-      "Overview"
-      
-      #titlePanel(),
-      # sidebarLayout(
-      #   sidebarPanel()
-      # ),
-      # mainPanel()
-      # 
+      "Overview",
+      titlePanel(img(
+        #change the png and etc.
+        src = 'image.png',
+        width = '100px',
+        height = '100px'
+        
+      )),
+      sidebarLayout(
+        sidebarPanel()
+      ),
+      mainPanel()
     ),
+    
     tabPanel(
-      'Crime Concentration by Location'
-      #titlePanel(),
-      # sidebarLayout(
-      #   sidebarPanel()
-      # ),
-      # mainPanel()
+      'Crime Concentration by Location',
+      titlePanel(),
+       sidebarLayout(
+         sidebarPanel()
+       ),
+       mainPanel()
     ),
+    
     tabPanel(
-      "Crime Concentration by Date/Time "
-      #titlePanel(),
-      # sidebarLayout(
-      #   sidebarPanel()
-      # ),
-      # mainPanel()
-      # 
+      "Crime Concentration by Date/Time",
+      titlePanel(),
+       sidebarLayout(
+         sidebarPanel()
+       ),
+       mainPanel()
     ),
+    
     tabPanel(
-      "LMAOOOAAAAOAOAOAOAO"
-      #titlePanel(),
-    #   sidebarLayout(
-    #     sidebarPanel()
-    #   ),
-    #   mainPanel()
-    # )
-    
-    
-    
-    
-  )
+      "LMAOOOAAAAOAOAOAOAO",
+      titlePanel(),
+      sidebarLayout(
+        sidebarPanel()
+      ),
+      mainPanel()
+    )
   )  
 ))
