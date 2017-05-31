@@ -11,7 +11,6 @@ library(shiny)
 library(dplyr)
 library(plotly)
 library(rsconnect)
-library(shinythemes)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(

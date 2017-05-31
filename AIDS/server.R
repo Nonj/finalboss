@@ -15,6 +15,7 @@ library(shiny)
 #dataset for the SeattlePD
 
 age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
+df <- age.data[-1,]
 prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
 new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
 deaths.data <- read.csv('data/deaths_HIV.csv', stringsAsFactors = FALSE)
