@@ -6,8 +6,14 @@
 # 
 #    http://shiny.rstudio.com/
 #
-
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(rsconnect)
 library(shiny)
+
+#dataset for the SeattlePD
+crime.data <- read.csv("data/Seattle_Police_Department_Police_Report_Incident.csv", stringsAsFactors = FALSE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {

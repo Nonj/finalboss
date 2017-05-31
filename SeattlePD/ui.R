@@ -8,12 +8,38 @@
 #
 
 library(shiny)
+library(dplyr)
+library(plotly)
+library(rsconnect)
+library(shinythemes)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Seattle Police Department Data"),
+  
+  
+  navbarPage(
+    tabPanel(
+      "Overview",
+      
+      titlePanel(img(
+        #change the png and etc.
+        src = 'image.png',
+        width: '100px',
+        height = '100px'
+        
+      )),
+      #Add once decided on data
+      sidebarLayout()
+      
+    )
+    
+    
+    
+    
+  )
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
