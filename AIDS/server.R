@@ -13,20 +13,14 @@ library(rsconnect)
 library(shiny)
 
 #dataset for the SeattlePD
-crime.data <- read.csv("data/Seattle_Police_Department_Police_Report_Incident.csv", stringsAsFactors = FALSE)
+
+age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
+prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
+new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
+deaths.data <- read.csv('data/deaths_HIV.csv', stringsAsFactors = FALSE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
-  })
   
 })

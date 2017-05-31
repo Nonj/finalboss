@@ -17,56 +17,49 @@ library(shinythemes)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Seattle Police Department Data"),
+  titlePanel("HIV Data"),
   
   
   navbarPage(
     tabPanel(
-      "Overview",
+      "Overview"
       
-      titlePanel(img(
-        #change the png and etc.
-        src = 'image.png',
-        width: '100px',
-        height = '100px'
-        
-      )),
-      #Add once decided on data
-      sidebarLayout(
-        sidebarPanel()
-      ),
-      mainPanel()
-      
+      #titlePanel(),
+      # sidebarLayout(
+      #   sidebarPanel()
+      # ),
+      # mainPanel()
+      # 
     ),
     tabPanel(
-      "Crime Concentration by Location",
-      titlePanel(),
-      sidebarLayout(
-        sidebarPanel()
-      ),
-      mainPanel()
+      'Crime Concentration by Location'
+      #titlePanel(),
+      # sidebarLayout(
+      #   sidebarPanel()
+      # ),
+      # mainPanel()
     ),
     tabPanel(
-      "Crime Concentration by Date/Time ",
-      titlePanel(),
-      sidebarLayout(
-        sidebarPanel()
-      ),
-      mainPanel()
-      
+      "Crime Concentration by Date/Time "
+      #titlePanel(),
+      # sidebarLayout(
+      #   sidebarPanel()
+      # ),
+      # mainPanel()
+      # 
     ),
     tabPanel(
-      "LMAOOOAAAAOAOAOAOAO",
-      titlePanel(),
-      sidebarLayout(
-        sidebarPanel()
-      ),
-      mainPanel()
-    )
+      "LMAOOOAAAAOAOAOAOAO"
+      #titlePanel(),
+    #   sidebarLayout(
+    #     sidebarPanel()
+    #   ),
+    #   mainPanel()
+    # )
     
     
     
     
   )
-  
+  )  
 ))
