@@ -34,12 +34,22 @@ shinyUI(fluidPage(
       #Add once decided on data
       sidebarLayout()
       
+    ),
+    tabPanel(
+      "Crime Concentration by Location"
+      
+    ),
+    tabPanel(
+      "Crime Concentration by Date/Time "
+    ),
+    tabPanel(
+      "LMAOOOAAAAOAOAOAOAO"
     )
     
     
     
     
-  )
+  ),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
