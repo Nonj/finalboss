@@ -13,7 +13,7 @@ library(rsconnect)
 library(shiny)
 library(gdata)
 
-#dataset for the SeattlePD
+#dataset for the HIV data
 
 age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
 df <- age.data[-1,]

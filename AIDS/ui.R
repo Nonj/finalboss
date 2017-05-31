@@ -53,6 +53,15 @@ shinyUI(fluidPage(
        ),
        mainPanel()
     ),
+
+    tabPanel(
+      "LMAOOOAAAAOAOAOAOAO"
+    # titlePanel(),
+    #   sidebarLayout(
+    #     sidebarPanel()
+    #   ),
+    #   mainPanel()
+    # )
     
     tabPanel(
       "LMAOOOAAAAOAOAOAOAO",
@@ -63,4 +72,4 @@ shinyUI(fluidPage(
       mainPanel()
     )
   )  
-))
+)))
