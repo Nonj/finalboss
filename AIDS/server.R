@@ -16,9 +16,6 @@ library(qdap)
 
 #dataset for the HIV data
 
-
-
-
 age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
 prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
 new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
