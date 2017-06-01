@@ -40,6 +40,10 @@ shinyUI(navbarPage("HIV Data",
                   choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
       )
     ),
+    
+    sidebarPanel( p("This world map visualization shows either the prevalence or amount of deaths per country throughout the world. 
+                    By hovering over each country you can see the data attached depending on the selection.")
+    ),
     mainPanel(
       plotlyOutput("map")
     )
@@ -53,6 +57,10 @@ shinyUI(navbarPage("HIV Data",
                      label = 'Country',
                      choices = choices.for.countries,
                      selected = 'Afghanistan')
+       ),
+       sidebarPanel(
+         p("This visualization shows the trends of infection throughout the decade of 2015. Each country can be selected
+           and the trend will be shown through the line plot. ")
        ),
        mainPanel(
          plotlyOutput("infections")
