@@ -53,7 +53,7 @@ shinyServer(function(input, output) {
   })
   
   output$infections <- renderPlotly({
-    return(makeLineGraph(new.data, input$country))
+    makeLineGraph(new.data, input$country)
   })
   
 })

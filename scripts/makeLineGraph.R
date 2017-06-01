@@ -7,7 +7,7 @@ makeLineGraph <- function(aids.data, user.country) {
   
   p <- plot_ly(country.data, x = colnames(country.data), y = amount.of.people, 
                                    type = 'scatter', mode = 'lines')
-  
+  p
 }
 
 #source('../scripts/cleanData.R')
