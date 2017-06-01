@@ -7,6 +7,7 @@ CleanData <- function(dataset){
   pop.data <- pop.data[-c(1:94),]
   pop.data <- pop.data %>% select(X.3)
   colnames(pop.data) <- c('Population')
+  pop.data$Population <- gsub(",", "", pop.data$Population)
   df<- dataset[-1,]
   colnames(df) <- c('Country', 2015, 2010, 2005, 2000)
   df[df == 'No data'] <- 0
