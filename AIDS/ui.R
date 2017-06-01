@@ -44,7 +44,7 @@ shinyUI(navbarPage("HIV Data",
   ),
   tabPanel(
     "HIV Infections Trends Per Country",
-    titlePanel(),
+    titlePanel("HIV Infections Trends Per Country"),
      sidebarLayout(
        sidebarPanel(
          selectInput(inputId = 'country',
