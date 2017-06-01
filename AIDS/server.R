@@ -16,15 +16,15 @@ library(qdap)
 
 #dataset for the HIV data
 
-age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
-prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
-new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
-deaths.data <- read.csv('data/deaths_HIV.csv', stringsAsFactors = FALSE)
+age.data <- read.csv('../data/age_HIV.csv', stringsAsFactors = FALSE)
+prevalance.data <- read.csv('../data/prevalence_HIV.csv', stringsAsFactors = FALSE)
+new.data <- read.csv('../data/new_HIV.csv', stringsAsFactors = FALSE)
+deaths.data <- read.csv('../data/deaths_HIV.csv', stringsAsFactors = FALSE)
 
 
 
 CleanData <- function(dataset){
-  pop.data <- read.csv('data/POP.csv', stringsAsFactors = FALSE)
+  pop.data <- read.csv('../data/POP.csv', stringsAsFactors = FALSE)
   pop.data <- pop.data %>% select(X.2, X.3)
   pop.data <- pop.data[-c(1:4),]
   pop.data <- arrange(pop.data, X.2)
@@ -41,11 +41,12 @@ CleanData <- function(dataset){
 }
 
 
-age.data <- data.frame(CleanData(age.data))
-prevalance.data <- data.frame(CleanData(prevalance.data))
-new.data <- data.frame(CleanData(new.data))
-colnames(new.data)<-c('Country',2015, 2015, 2010, 2005, 2000)
-deaths.data <- data.frame(CleanData(deaths.data))
+
+age.data <- CleanData(age.data)
+prevalance.data <- CleanData(prevalance.data)
+new.data <- CleanData(new.data)
+colnames(new.data)<-c('Country',2015, 2015, 2010, 2005, 2000, 'population')
+deaths.data <- CleanData(deaths.data)
 
 
 source('./scripts/buildWorldMap.R')
