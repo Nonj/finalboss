@@ -8,9 +8,9 @@ library(gdata)
 library(qdap)
 
 # Scripts
-source('./scripts/buildWorldMap.R')
-source('./scripts/cleanData.R')
-source('./scripts/makeLineGraph.R')
+source('../scripts/buildWorldMap.R')
+source('../scripts/cleanData.R')
+source('../scripts/makeLineGraph.R')
 
 #dataset for the HIV data
 gdp.data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
