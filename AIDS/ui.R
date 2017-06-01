@@ -81,15 +81,7 @@ shinyUI(fluidPage(
            plotOutput('infections')
          )
          )
-    ), 
-    
-    tabPanel(
-      "LMAOOOAAAAOAOAOAOAO",
-      titlePanel(),
-      sidebarLayout(
-        sidebarPanel(),
-        mainPanel()
-      )
-    )
-  )  
+    ) 
 )
+)
+
