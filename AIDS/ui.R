@@ -1,16 +1,12 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
+# UI for Shiny 201 FINAL 
 
-library(shiny)
-library(dplyr)
-library(plotly)
-library(rsconnect)
+# LOADING DATA
+new.data <- read.csv('../data/new_HIV.csv', stringsAsFactors = FALSE)
+new.data <- CleanData(new.data)
+new.data <- data.frame(new.data)
+choices.for.countries <- new.data %>% select(Country)
+typeof(choices.for.countries)
+
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
@@ -71,10 +67,15 @@ shinyUI(fluidPage(
     ),
     
     tabPanel(
-      "Crime Concentration by Date/Time",
+      "HIV Infections Trends Per Country",
       titlePanel(),
        sidebarLayout(
-         sidebarPanel()
+         sidebarPanel(
+           selectInput(inputId = 'country',
+                       label = 'Country',
+                       choices = choices.for.countries,
+                       selected = 'Afghanistan')
+         )
        ),
        mainPanel()
     ), 
