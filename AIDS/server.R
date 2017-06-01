@@ -28,7 +28,7 @@ source('./scripts/buildWorldMap.R')
 shinyServer(function(input, output) {
    
   output$map <- renderPlotly({
-    return (buildWorldMap("desiredData", color.var)) #Makes the map with whatever data we want
+    return (buildWorldMap(input$data.var, input$color.var, input$year.var)) #Makes the map with whatever data we want
   })
   
 })

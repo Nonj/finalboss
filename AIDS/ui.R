@@ -40,9 +40,13 @@ shinyUI(fluidPage(
       'World Map',
       titlePanel("World Map By Dataset"),
       
-      radioButtons('data', ("Choose a dataset"),
+      radioButtons('data.var', ("Choose a dataset"),
                    choices = list("Deaths" = 1, "Prevalence" = 2), 
                    selected = 1),
+      
+      selectInput('year.var', ("Select Year"), 
+                  choices = list("2000" = 1, "2005" = 2, "2010" = 3, "2015" = 4), 
+                  selected = 1),
       
       sidebarPanel(
         selectInput('color.var', 'Choose a color for dataset', 

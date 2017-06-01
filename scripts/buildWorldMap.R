@@ -1,4 +1,4 @@
-buildWorldMap <- function(data, color.var){
+buildWorldMap <- function(data.var, color.var, year.var){
 
 # light grey boundaries
 l <- list(color = toRGB("grey"), width = 0.5)
@@ -7,17 +7,17 @@ l <- list(color = toRGB("grey"), width = 0.5)
 g <- list(
   showframe = FALSE,
   showcoastlines = FALSE,
-  projection = list(type = 'Mercator')
+  projection = list(type = 'Natural Earth')
 )
 
-makeMap <- plot_geo(df) %>%
+makeMap <- plot_geo(data) %>%
   add_trace(
-    z = ~"data"., color = ~"data"., colors = color.var,
-    text = ~"Country name", locations = ~"Code name", marker = list(line = l)
+    z = ~year.var, color = ~year.var, colors = color.var,
+    text = ~Country, locations = ~"Code name", marker = list(line = l)
   ) %>%
-  colorbar(title = 'GDP Billions US$', tickprefix = '$') %>%
+  colorbar(title = "HIV") %>%
   layout(
-    title = 'HIV Deaths<br>Source:<a href="https://www.cia.gov/library/publications/the-world-factbook/fields/2195.html">CIA World Factbook</a>',
+    title = 'HIV Deaths<br>Source:<a href="http://www.who.int/hiv/en/">World Health Organization HIV</a>',
     geo = g
   )
 
