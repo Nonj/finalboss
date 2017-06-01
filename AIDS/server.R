@@ -22,10 +22,10 @@ deaths.data <- read.csv('../data/deaths_HIV.csv', stringsAsFactors = FALSE)
 
 # cleaning data
 
-age.data <- data.frame(CleanData(age.data))
-prevalance.data <- data.frame(CleanData(prevalance.data))
-new.data <- data.frame(CleanData(new.data))
-deaths.data <- data.frame(CleanData(deaths.data))
+age.data <- data.frame(CleanData(age.data), stringsAsFactors = FALSE)
+prevalance.data <- data.frame(CleanData(prevalance.data), stringsAsFactors = FALSE)
+new.data <- data.frame(CleanData(new.data), stringsAsFactors = FALSE)
+deaths.data <- data.frame(CleanData(deaths.data), stringsAsFactors = FALSE)
 
 # joining data
 
@@ -34,9 +34,10 @@ joined.prevalance <- prevalance.data %>% full_join(gdp.data)
 joined.new <- new.data %>% full_join(gdp.data)
 joined.deaths <- deaths.data %>% full_join(gdp.data)
 
+#THESE ARE JUST TESTS. CAN DELETE 
 test.data <- new.data %>% filter(Country == 'Bahamas') %>% select(X2015)
-
-
+test.factor <- joined.new
+test.factor$X2015 =  as.numeric(as.character(test.factor$X2015))
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
