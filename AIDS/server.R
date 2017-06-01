@@ -8,7 +8,8 @@ library(gdata)
 library(qdap)
 
 # Scripts
-source('../scripts/buildWorldMap.R')
+source('../scripts/buildWorldMapDeaths.R')
+source('../scripts/buildWorldMapPrevalence.R')
 source('../scripts/cleanData.R')
 source('../scripts/makeLineGraph.R')
 
@@ -42,14 +43,11 @@ test.factor$X2015 =  as.numeric(as.character(test.factor$X2015))
 shinyServer(function(input, output) {
    
   output$map <- renderPlotly({
-    if(data.var == 1){
-      data.var == "joined.deaths"
-      return (buildWorldMap(input$data.var, input$color.var, input$year.var)) 
+    if(input$data.var == 1){ #Makes the map with whatever data we want
+      return (buildWorldMapDeaths(input$data.var, input$year.var)) 
     } else {
-      data.var == "joined.prevalence"
-      return (buildWorldMap(input$data.var, input$color.var, input$year.var)) 
+      return (buildWorldMapPrevelance(input$data.var, input$year.var)) 
     }
- #Makes the map with whatever data we want
   })
   
   output$infections <- renderPlotly({

@@ -29,17 +29,13 @@ shinyUI(navbarPage("HIV Data",
                  choices = list("Deaths" = 1, "Prevalence" = 2), 
                  selected = 1),
     
-    selectInput('year.var', ("Select Year"), 
-                choices = list("2000" = 1, "2005" = 2, "2010" = 3, "2015" = 4), 
-                selected = 1),
-    
     sidebarPanel(
-      selectInput('color.var', 'Choose a color for dataset', 
-                  choices = c("Purple" = 'rgb(75,55,130)', "Yellow" = 'rgb(240,240,51)', 
-                              "Green" = 'rgb(0,202,0)', "Red" = 'rgb(226,31,31)')),
-      mainPanel(
-        plotlyOutput("map")
+      selectInput('year.var', 'Select a Year', 
+                  choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
       )
+    ),
+    mainPanel(
+      plotlyOutput("map")
     )
   ),
   tabPanel(
