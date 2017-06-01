@@ -37,26 +37,15 @@ joined.deaths <- deaths.data %>% full_join(gdp.data)
 
 # Took spaces out the numbers (use these)
 fixed.age <- data.frame(lapply(joined.age, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
-
 fixed.prevalence <- data.frame(lapply(joined.prevalance, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
-
 fixed.new <- data.frame(lapply(joined.new, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
-
 fixed.deaths <- data.frame(lapply(joined.deaths, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
 
 fixed.age[2:7] <- data.frame(lapply(fixed.age[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
 fixed.prevalence[2:7] <- data.frame(lapply(fixed.prevalence[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
 fixed.new[2:8] <- data.frame(lapply(fixed.new[2:8], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
 fixed.deaths[2:7] <- data.frame(lapply(fixed.deaths[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
-#THESE ARE JUST TESTS. CAN DELETE/DISREGARD 
 
-test.factor[2:7] <- data.frame(lapply(test.factor[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
-test.factor <- data.frame(lapply(test.factor, function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
-test.data <- new.data %>% filter(Country == 'Bahamas') %>% select(X2015)
-test.factor <- fixed.deaths
-test.factor$X2015 <- as.numeric(as.character(fixed.deaths$X2015))
-test.factor$X2010 <- as.numeric(as.character(test.factor$X2010))
-test.factor <- data.frame(lapply(test.factor, function(x) {gsub(" ", "", x)}))
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
