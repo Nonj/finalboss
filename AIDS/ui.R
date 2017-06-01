@@ -2,9 +2,11 @@
 
 # LOADING DATA
 new.data <- read.csv('../data/new_HIV.csv', stringsAsFactors = FALSE)
-new.data <- CleanData(new.data)
-new.data <- data.frame(new.data)
-choices.for.countries <- new.data %>% select(Country)
+new.data <- new.data[, c(1, 3, 4, 5, 6, 2)]
+new.data <- data.frame(lapply(data.frame(CleanData(new.data)), function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
+new.data[2:7] <- data.frame(lapply(new.data[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
+new.data <- new.data %>% filter((X2015 + X2010 + X2005 + X2000) > 0)
+choices.for.countries <- new.data %>% filter(sum(new.data[2:5]) > 0) %>% select(Country)
 typeof(choices.for.countries)
                               
 # Define UI for application that draws a histogram
@@ -51,7 +53,7 @@ shinyUI(navbarPage("HIV Data",
   ),
   tabPanel(
     "HIV Infections Trends Per Country",
-    titlePanel("HIV Infections Trends Per Country"),
+    titlePanel("HIV Infection Trends Per Country"),
      sidebarLayout(
        sidebarPanel(
          selectInput(inputId = 'country',
@@ -60,7 +62,7 @@ shinyUI(navbarPage("HIV Data",
                      selected = 'Afghanistan')
        ),
        mainPanel(
-         plotOutput('infections')
+         plotlyOutput("infections")
        )
        )
   ) 

@@ -14,5 +14,7 @@ CleanData <- function(dataset){
   df <-  genX(df, " [", "]")
   df <- gsub("<", "", df)
   df <- cbind(df, population = pop.data$Population)
+  ##df <- data.frame(lapply(df, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
+  ##df <- data.frame(lapply(df[2:5], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
   return(df)
 }

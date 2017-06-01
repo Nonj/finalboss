@@ -19,6 +19,7 @@ colnames(gdp.data)[1] <- "Country"
 age.data <- read.csv('../data/age_HIV.csv', stringsAsFactors = FALSE)
 prevalance.data <- read.csv('../data/prevalence_HIV.csv', stringsAsFactors = FALSE)
 new.data <- read.csv('../data/new_HIV.csv', stringsAsFactors = FALSE)
+new.data[2] <- NULL
 deaths.data <- read.csv('../data/deaths_HIV.csv', stringsAsFactors = FALSE)
 
 # cleaning data
@@ -35,16 +36,25 @@ joined.prevalance <- prevalance.data %>% full_join(gdp.data)
 joined.new <- new.data %>% full_join(gdp.data)
 joined.deaths <- deaths.data %>% full_join(gdp.data)
 
-# Took spaces out the numbers (use these)
-fixed.age <- data.frame(lapply(joined.age, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
-fixed.prevalence <- data.frame(lapply(joined.prevalance, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
-fixed.new <- data.frame(lapply(joined.new, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
-fixed.deaths <- data.frame(lapply(joined.deaths, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
+##removes spaces from numbers in data frame
+##removeSpaces <- function(data) {
+  ##return.data <- data.frame(lapply(data, function(x) {gsub(" ", "", x)}), stringsAsFactors = FALSE)
+  ##return (return.data)
+##}
 
-fixed.age[2:7] <- data.frame(lapply(fixed.age[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
-fixed.prevalence[2:7] <- data.frame(lapply(fixed.prevalence[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
-fixed.new[2:8] <- data.frame(lapply(fixed.new[2:8], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
-fixed.deaths[2:7] <- data.frame(lapply(fixed.deaths[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
+# Took spaces out the numbers (use these)
+##fixed.age <- removeSpaces(joined.age)
+##fixed.prevalence <- removeSpaces(joined.prevalance)
+##fixed.new <- removeSpaces(joined.new)
+##fixed.deaths <- removeSpaces(joined.deaths)
+
+
+##fixed.age[2:7] <- data.frame(lapply(fixed.age[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
+##fixed.prevalence[2:7] <- data.frame(lapply(fixed.prevalence[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
+##fixed.new[2:8] <- data.frame(lapply(fixed.new[2:8], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
+##fixed.deaths[2:7] <- data.frame(lapply(fixed.deaths[2:7], function(x) as.numeric(as.character(x))), stringsAsFactors = FALSE)
+#THESE ARE JUST TESTS. CAN DELETE/DISREGARD 
+>>>>>>> clean up code
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -58,7 +68,7 @@ shinyServer(function(input, output) {
   })
   
   output$infections <- renderPlotly({
-    makeLineGraph(new.data, input$country)
+    return(makeLineGraph(fixed.new, input$country))
   })
   
 })
