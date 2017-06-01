@@ -15,6 +15,7 @@ library(gdata)
 library(qdap)
 
 #dataset for the HIV data
+
 gdp.data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
 age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
 prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
@@ -22,9 +23,16 @@ new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
 deaths.data <- read.csv('data/deaths_HIV.csv', stringsAsFactors = FALSE)
 
 
+age.data <- read.csv('../data/age_HIV.csv', stringsAsFactors = FALSE)
+prevalance.data <- read.csv('../data/prevalence_HIV.csv', stringsAsFactors = FALSE)
+new.data <- read.csv('../data/new_HIV.csv', stringsAsFactors = FALSE)
+deaths.data <- read.csv('../data/deaths_HIV.csv', stringsAsFactors = FALSE)
+>>>>>>> 2ffb9f9a8d43dcb94329a457d35ee42db9aa7903
+
+
 
 CleanData <- function(dataset){
-  pop.data <- read.csv('data/POP.csv', stringsAsFactors = FALSE)
+  pop.data <- read.csv('../data/POP.csv', stringsAsFactors = FALSE)
   pop.data <- pop.data %>% select(X.2, X.3)
   pop.data <- pop.data[-c(1:4),]
   pop.data <- arrange(pop.data, X.2)
@@ -41,10 +49,18 @@ CleanData <- function(dataset){
 }
 
 
+
 age.data <- data.frame(CleanData(age.data))
 prevalance.data <- data.frame(CleanData(prevalance.data))
 new.data <- data.frame(CleanData(new.data))
 deaths.data <- data.frame(CleanData(deaths.data))
+
+
+age.data <- CleanData(age.data)
+prevalance.data <- CleanData(prevalance.data)
+new.data <- CleanData(new.data)
+colnames(new.data)<-c('Country',2015, 2015, 2010, 2005, 2000, 'population')
+deaths.data <- CleanData(deaths.data)
 
 joined.age <- age.data %>% full_join(gdp.data)
 joined.prevalance <- prevalance.data %>% full_join(gdp.data)
