@@ -17,18 +17,10 @@ library(qdap)
 #dataset for the HIV data
 
 gdp.data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
-age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
-prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
-new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
-deaths.data <- read.csv('data/deaths_HIV.csv', stringsAsFactors = FALSE)
-
-
-age.data <- read.csv('../data/age_HIV.csv', stringsAsFactors = FALSE)
-prevalance.data <- read.csv('../data/prevalence_HIV.csv', stringsAsFactors = FALSE)
-new.data <- read.csv('../data/new_HIV.csv', stringsAsFactors = FALSE)
-deaths.data <- read.csv('../data/deaths_HIV.csv', stringsAsFactors = FALSE)
->>>>>>> 2ffb9f9a8d43dcb94329a457d35ee42db9aa7903
-
+age.data <- read.csv('./data/age_HIV.csv', stringsAsFactors = FALSE)
+prevalance.data <- read.csv('./data/prevalence_HIV.csv', stringsAsFactors = FALSE)
+new.data <- read.csv('./data/new_HIV.csv', stringsAsFactors = FALSE)
+deaths.data <- read.csv('./data/deaths_HIV.csv', stringsAsFactors = FALSE)
 
 
 CleanData <- function(dataset){
@@ -48,19 +40,10 @@ CleanData <- function(dataset){
   return(df)
 }
 
-
-
 age.data <- data.frame(CleanData(age.data))
 prevalance.data <- data.frame(CleanData(prevalance.data))
 new.data <- data.frame(CleanData(new.data))
 deaths.data <- data.frame(CleanData(deaths.data))
-
-
-age.data <- CleanData(age.data)
-prevalance.data <- CleanData(prevalance.data)
-new.data <- CleanData(new.data)
-colnames(new.data)<-c('Country',2015, 2015, 2010, 2005, 2000, 'population')
-deaths.data <- CleanData(deaths.data)
 
 joined.age <- age.data %>% full_join(gdp.data)
 joined.prevalance <- prevalance.data %>% full_join(gdp.data)
@@ -73,7 +56,14 @@ source('./scripts/buildWorldMap.R')
 shinyServer(function(input, output) {
    
   output$map <- renderPlotly({
-    return (buildWorldMap(input$data.var, input$color.var, input$year.var)) #Makes the map with whatever data we want
+    if(data.var == 1){
+      data.var == "joined.deaths"
+      return (buildWorldMap(input$data.var, input$color.var, input$year.var)) 
+    } else {
+      data.var == "joined.prevalence"
+      return (buildWorldMap(input$data.var, input$color.var, input$year.var)) 
+    }
+ #Makes the map with whatever data we want
   })
   
 })

@@ -18,20 +18,20 @@ shinyUI(fluidPage(
   # Application title
   titlePanel("HIV Data"),
   
-  
-  navbarPage(
-    
-    tabPanel(
-      "Overview",
-      titlePanel(img(
-        #change the png and etc.
-        src = 'image.png',
-        width = '100px',
-        height = '100px'
-      )),
-      sidebarLayout(
-        sidebarPanel()
-      ),
+  # 
+  # navbarPage(
+  #   
+  #   tabPanel(
+  #     "Overview",
+  #     titlePanel(img(
+  #       #change the png and etc.
+  #       src = 'image.png',
+  #       width = '100px',
+  #       height = '100px'
+  #     )),
+  #     sidebarLayout(
+  #       sidebarPanel()
+  #     ),
       mainPanel(
         p('Human immunodeficiency virus or "HIV" is a virus that if left untreated can develop into aqquired immunodeficiency syndrome. 
         Unfortunately, the human body is unable to completely rid itself of HIV, so it affects the carrier for life. HIV affects the body\'s immune
@@ -61,7 +61,7 @@ shinyUI(fluidPage(
       
       sidebarPanel(
         selectInput('color.var', 'Choose a color for dataset', 
-                    choices = c("Purple" = 'rgb(75,55,130)', "Yellow" = 'rgb(240,240,51)', 
+                    choices = c("Purple" = 'rgb(75,55,130)',
                                 "Green" = 'rgb(0,202,0)', "Red" = 'rgb(226,31,31)'))
       ),
       
@@ -70,22 +70,22 @@ shinyUI(fluidPage(
       )
     ),
     
-    tabPanel(
-      "Crime Concentration by Date/Time",
-      titlePanel(),
-       sidebarLayout(
-         sidebarPanel()
-       ),
-       mainPanel()
-    ), 
-    
-    tabPanel(
-      "LMAOOOAAAAOAOAOAOAO",
-      titlePanel(),
-      sidebarLayout(
-        sidebarPanel()
-      ),
-      mainPanel()
-    )
+    # tabPanel(
+    #   "Crime Concentration by Date/Time",
+    #   titlePanel(),
+    #    sidebarLayout(
+    #      sidebarPanel()
+    #    ),
+    #    mainPanel()
+    # ), 
+    # 
+    # tabPanel(
+    #   "LMAOOOAAAAOAOAOAOAO",
+    #   titlePanel(),
+    #   sidebarLayout(
+    #     sidebarPanel()
+    #   ),
+    #   mainPanel()
+    # )
   )  
 ))
