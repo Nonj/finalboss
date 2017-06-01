@@ -27,7 +27,9 @@ shinyUI(navbarPage("HIV Data",
     h3("The Data"),
     p("This project focuses on the prevalence of HIV throughout the world by country between the years of", strong('2000 and 2015'), "using 
     interactive visuals. It will find which countries had the highest overall infection rate, as well as portray how the infection to death 
-    ration fluctuated throughout the decade. The top 5 most infected countries will also be analyzed for their GDP and population side to reveal any underlying similarities")
+    ration fluctuated throughout the decade. The top 5 most infected countries will also be analyzed for their GDP and population side to 
+    reveal any underlying similarities. Understanding the weight in which HIV/AIDS affects countries around the world allows one to begin to
+    identify where and why HIV/AIDS is impacting peoples lives in this century.")
     ),
     
   tabPanel(
