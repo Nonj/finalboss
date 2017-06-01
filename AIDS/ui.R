@@ -11,15 +11,24 @@ typeof(choices.for.countries)
 shinyUI(navbarPage("HIV Data",
   tabPanel(
     "Overview",
-  p('Human immunodeficiency virus or "HIV" is a virus that if left untreated can develop into aqquired immunodeficiency syndrome. 
-      Unfortunately, the human body is unable to completely rid itself of HIV, so it affects the carrier for life. HIV affects the body\'s immune
-      system, and left untreated, reduces the number of T cells in the body, making the body more susceptible to infection. Eventually, the body
-      is left completely defensless against infection and disease, which represents the onset of the AIDS stage.
-        
-      There is currently no cure for HIV/AIDS but can be controlled relatively effectively through the use of antiretroviral theropy.
-      If taken carefully and diligently,antiretroviral medicine can significantly prolong the lives of people with HIV as well as lower
-      their likelyhood of transmitting the virus to others.')
-   ),
+    h1('HIV/AIDS', align= "center"),
+    HTML('<center><img src="hivimage.JPG" width="700"></center>'),
+    h3('About'),
+    p(strong('Human immunodeficiency virus or "HIV"'), 'is a virus that if left untreated can develop into aqquired immunodeficiency syndrome. 
+    Unfortunately, the human body is', em('unable'), 'to completely rid itself of HIV, so it affects the carrier for life. HIV affects the body\'s immune
+    system, and left untreated, reduces the number of T cells in the body, making the body more susceptible to infection. Eventually, the body
+    is left completely defensless against infection and disease, which represents the onset of the AIDS stage.'), 
+    span(),
+    p('There is currently no cure for HIV/AIDS but can be controlled relatively effectively through the use of antiretroviral theropy.
+    If taken carefully and diligently, antiretroviral medicine can significantly prolong the lives of people with HIV as well as lower
+    their likelyhood of transmitting the virus to others.'),
+    span(),
+    p('You can learn more about HIV/AIDS from this government', a("website", href = "https://www.aids.gov/hiv-aids-basics/hiv-aids-101/what-is-hiv-aids/")),
+    h3("The Data"),
+    p("This project focuses on the prevalence of HIV throughout the world by country between the years of", strong('2000 and 2015'), "using 
+    interactive visuals. It will find which countries had the highest overall infection rate, as well as portray how the infection to death 
+    ration fluctuated throughout the decade. The top 5 most infected countries will also be analyzed for their GDP and population side to reveal any underlying similarities")
+    ),
     
   tabPanel(
     'World Map',
