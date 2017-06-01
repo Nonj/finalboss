@@ -11,7 +11,7 @@ typeof(choices.for.countries)
 shinyUI(navbarPage("HIV Data",
   tabPanel(
     "Overview",
-    p('Human immunodeficiency virus or "HIV" is a virus that if left untreated can develop into aqquired immunodeficiency syndrome. 
+  p('Human immunodeficiency virus or "HIV" is a virus that if left untreated can develop into aqquired immunodeficiency syndrome. 
       Unfortunately, the human body is unable to completely rid itself of HIV, so it affects the carrier for life. HIV affects the body\'s immune
       system, and left untreated, reduces the number of T cells in the body, making the body more susceptible to infection. Eventually, the body
       is left completely defensless against infection and disease, which represents the onset of the AIDS stage.
