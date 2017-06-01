@@ -53,7 +53,7 @@ shinyServer(function(input, output) {
     if(input$data.var == 1){ #Makes the map with whatever data we want
       return (buildWorldMapDeaths(input$data.var, input$year.var)) 
     } else {
-      return (buildWorldMapPrevelance(input$data.var, input$year.var)) 
+      return (buildWorldMapPrevalence(input$data.var, input$year.var)) 
     }
   })
   
