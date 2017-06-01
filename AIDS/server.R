@@ -41,11 +41,11 @@ CleanData <- function(dataset){
 }
 
 
-age.data <- CleanData(age.data)
-prevalance.data <- CleanData(prevalance.data)
-new.data <- CleanData(new.data)
+age.data <- data.frame(CleanData(age.data))
+prevalance.data <- data.frame(CleanData(prevalance.data))
+new.data <- data.frame(CleanData(new.data))
 colnames(new.data)<-c('Country',2015, 2015, 2010, 2005, 2000)
-deaths.data <- CleanData(deaths.data)
+deaths.data <- data.frame(CleanData(deaths.data))
 
 
 source('./scripts/buildWorldMap.R')
