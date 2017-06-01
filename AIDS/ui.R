@@ -77,6 +77,11 @@ shinyUI(navbarPage("HIV Data",
                     choices = c(3, 5, 7),
                     selected = '3')
       ),
+      sidebarPanel(
+        p("Looking at the countries in the data, we may be able to find some similarities between those with certain
+          levels of prevalence. For this barplot, the prevalence of infection is compared to the GDP of the countries
+          depending on the 3, 5, or 7 countries with the highest prevalence. ")
+      ),
       mainPanel(
         plotlyOutput("gdp")
       )
