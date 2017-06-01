@@ -10,12 +10,12 @@ buildWorldMapDeaths <- function(data.var, year.var){
     projection = list(type = 'Mercator')
   )
   
-  makeMap <- plot_geo(joined.deaths) %>%
+  makeMap <- plot_geo(fixed.deaths) %>%
     add_trace(
-      z = ~eval(parse(text = paste0("X",year.var))), color = ~"2005", colors = 'Blues',
+      z = ~eval(parse(text = paste0("X",year.var))), color = ~eval(parse(text = paste0("X",year.var))), colors = 'Purples',
       text = ~Country, locations = ~CODE, marker = list(line = l)
     ) %>%
-    colorbar(title = 'HIV Deaths by Country') %>%
+    colorbar(title = 'Number of People') %>%
     layout(
       title = 'HIV Deaths by Country<br>Source:<a href="http://www.who.int/hiv/en/">World Health Organization HIV</a>',
       geo = g
