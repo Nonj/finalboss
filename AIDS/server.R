@@ -15,10 +15,10 @@ source('../scripts/makeLineGraph.R')
 #dataset for the HIV data
 gdp.data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
 colnames(gdp.data)[1] <- "Country"
-age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
-prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
-new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
-deaths.data <- read.csv('data/deaths_HIV.csv', stringsAsFactors = FALSE)
+age.data <- read.csv('../data/age_HIV.csv', stringsAsFactors = FALSE)
+prevalance.data <- read.csv('../data/prevalence_HIV.csv', stringsAsFactors = FALSE)
+new.data <- read.csv('../data/new_HIV.csv', stringsAsFactors = FALSE)
+deaths.data <- read.csv('../data/deaths_HIV.csv', stringsAsFactors = FALSE)
 
 # cleaning data
 
