@@ -1,6 +1,6 @@
 # Script to clean the CSVs being passed in
 CleanData <- function(dataset){
-  pop.data <- read.csv('./data/POP.csv', stringsAsFactors = FALSE)
+  pop.data <- read.csv('../data/POP.csv', stringsAsFactors = FALSE)
   pop.data <- pop.data %>% select(X.2, X.3)
   pop.data <- pop.data[-c(1:4),]
   pop.data <- arrange(pop.data, X.2)
