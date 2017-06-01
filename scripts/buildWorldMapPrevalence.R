@@ -1,7 +1,7 @@
 buildWorldMapPrevalence <- function(data.var, year.var){
 
 # light yellow boundaries between countries
-l <- list(color = 'rgb(0,202,0)', width = .75)
+l <- list(color = toRGB("grey"), width = .75)
 
 # specify map details
 g <- list(
