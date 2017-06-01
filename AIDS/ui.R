@@ -58,12 +58,13 @@ shinyUI(fluidPage(
       sidebarPanel(
         selectInput('color.var', 'Choose a color for dataset', 
                     choices = c("Purple" = 'rgb(75,55,130)', "Yellow" = 'rgb(240,240,51)', 
-                                "Green" = 'rgb(0,202,0)', "Red" = 'rgb(226,31,31)'))
-      ),
-      
-      mainPanel(
-        plotlyOutput("map")
+                                "Green" = 'rgb(0,202,0)', "Red" = 'rgb(226,31,31)')),
+        mainPanel(
+          plotlyOutput("map")
+        )
       )
+    )
+      
     ),
     
     tabPanel(
@@ -75,18 +76,20 @@ shinyUI(fluidPage(
                        label = 'Country',
                        choices = choices.for.countries,
                        selected = 'Afghanistan')
+         ),
+         mainPanel(
+           plotOutput('infections')
          )
-       ),
-       mainPanel()
+         )
     ), 
     
     tabPanel(
       "LMAOOOAAAAOAOAOAOAO",
       titlePanel(),
       sidebarLayout(
-        sidebarPanel()
-      ),
-      mainPanel()
+        sidebarPanel(),
+        mainPanel()
+      )
     )
   )  
-))
+)

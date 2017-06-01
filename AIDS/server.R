@@ -7,9 +7,10 @@ library(shiny)
 library(gdata)
 library(qdap)
 
-# functions
+# Scripts
 source('../scripts/buildWorldMap.R')
 source('../scripts/cleanData.R')
+source('../scripts/makeLineGraph.R')
 
 #dataset for the HIV data
 gdp.data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
@@ -30,7 +31,7 @@ joined.prevalance <- prevalance.data %>% full_join(gdp.data)
 joined.new <- new.data %>% full_join(gdp.data)
 joined.deaths <- deaths.data %>% full_join(gdp.data)
 
-
+test.data <- new.data %>% filter(Country == 'Bahamas') %>% select(X2015)
 
 
 # Define server logic required to draw a histogram
@@ -38,6 +39,10 @@ shinyServer(function(input, output) {
    
   output$map <- renderPlotly({
     return (buildWorldMap(input$data.var, input$color.var, input$year.var)) #Makes the map with whatever data we want
+  })
+  
+  output$infections <- renderPlotly({
+    return(makeLineGraph(new.data, input$country))
   })
   
 })
