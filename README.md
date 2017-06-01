@@ -23,6 +23,7 @@ The visualizations shown throughout the application answer several questions:
 
 
 Alongside our utilization of shiny and R, we also implemented libraries such as qdap, gdata, and plotly to make our visualizations and code neater.
+
 Our data was found on the following resources:
   * [World Health Organization](http://apps.who.int/gho/data/node.main.620?lang=en)
   * Gdp data goes here with link
