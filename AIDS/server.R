@@ -15,7 +15,7 @@ library(gdata)
 library(qdap)
 
 #dataset for the HIV data
-
+gdp.data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
 age.data <- read.csv('data/age_HIV.csv', stringsAsFactors = FALSE)
 prevalance.data <- read.csv('data/prevalence_HIV.csv', stringsAsFactors = FALSE)
 new.data <- read.csv('data/new_HIV.csv', stringsAsFactors = FALSE)
@@ -32,7 +32,7 @@ CleanData <- function(dataset){
   pop.data <- pop.data %>% select(X.3)
   colnames(pop.data) <- c('Population')
   df<- dataset[-1,]
-  colnames(df) <- c('Country', 2015, 2010, 2005, 2000)
+  colnames(df) <- c('COUNTRY', 2015, 2010, 2005, 2000)
   df[df == 'No data'] <- 0
   df <-  genX(df, " [", "]")
   df <- gsub("<", "", df)
@@ -44,9 +44,12 @@ CleanData <- function(dataset){
 age.data <- data.frame(CleanData(age.data))
 prevalance.data <- data.frame(CleanData(prevalance.data))
 new.data <- data.frame(CleanData(new.data))
-colnames(new.data)<-c('Country',2015, 2015, 2010, 2005, 2000)
 deaths.data <- data.frame(CleanData(deaths.data))
 
+joined.age <- age.data %>% full_join(gdp.data)
+joined.prevalance <- prevalance.data %>% full_join(gdp.data)
+joined.new <- new.data %>% full_join(gdp.data)
+joined.deaths <- deaths.data %>% full_join(gdp.data)
 
 source('./scripts/buildWorldMap.R')
 

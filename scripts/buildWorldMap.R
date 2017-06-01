@@ -1,21 +1,21 @@
-buildWorldMap <- function(data.var, color.var, year.var){
+#buildWorldMap <- function(data.var, color.var, year.var){
 
 # light grey boundaries
-l <- list(color = toRGB("grey"), width = 0.5)
+l <- list(color = rgb(240,240,51, maxColorValue = 255), width = 0.5)
 
 # specify map projection/options
 g <- list(
-  showframe = FALSE,
-  showcoastlines = FALSE,
-  projection = list(type = 'Natural Earth')
+  showframe = TRUE,
+  showcoastlines = TRUE,
+  projection = list(type = 'Mercator')
 )
 
-makeMap <- plot_geo(data) %>%
+makeMap <- plot_geo(joined.age) %>%
   add_trace(
-    z = ~year.var, color = ~year.var, colors = color.var,
-    text = ~Country, locations = ~"Code name", marker = list(line = l)
+    z = ~population, color = ~population, colors = 'Blues',
+    text = ~COUNTRY, locations = ~CODE, marker = list(line = l)
   ) %>%
-  colorbar(title = "HIV") %>%
+  colorbar(title = "HIV Age$", tickprefix = '$') %>%
   layout(
     title = 'HIV Deaths<br>Source:<a href="http://www.who.int/hiv/en/">World Health Organization HIV</a>',
     geo = g
@@ -23,6 +23,6 @@ makeMap <- plot_geo(data) %>%
 
 makeMap
 
-}
+
  
 
