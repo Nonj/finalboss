@@ -66,6 +66,21 @@ shinyUI(navbarPage("HIV Data",
          plotlyOutput("infections")
        )
        )
+  ),
+  tabPanel(
+    "Infection rate compare to GDP",
+    titlePanel("HIV Infection Prevalency Compared to Countries GDP"),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(inputId = 'top',
+                    label = 'Top X Countries',
+                    choices = c(3, 5, 7),
+                    selected = '3')
+      ),
+      mainPanel(
+        plotlyOutput("gdp")
+      )
+    )
   ) 
 ))
 

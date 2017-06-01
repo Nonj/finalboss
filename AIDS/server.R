@@ -42,4 +42,8 @@ shinyServer(function(input, output) {
     return(makeLineGraph(input$country))
   })
   
+  output$gdp <- renderPlotly({
+    return()
+  })
+  
 })
