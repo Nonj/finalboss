@@ -1,3 +1,4 @@
+#returns Pie chart
 makePieChart <- function(year.var){
   
   #sorting data from most deaths to least deaths in the inputted year

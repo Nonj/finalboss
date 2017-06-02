@@ -1,4 +1,4 @@
-# Scatter plot
+# returns Scatter plot
 makeScatterPlot <- function(year){
   
   #filtering out all no data empty values

@@ -35,15 +35,19 @@ shinyUI(navbarPage("HIV Data",
     identify where and why HIV/AIDS is impacting peoples lives in this century.")
     ),
     
+  #creates two color coordinated maps of world 
+  #hover text for nation name and deaths occured
   tabPanel(
     'World Map',
     titlePanel("World Map By Dataset"),
     
+    #user can choose between prevalence map or mortality map
     radioButtons('data.var', ("Choose a dataset"),
                  choices = list("Deaths" = 1, "Prevalence" = 2), 
                  selected = 1),
     
     sidebarPanel(
+      #user can choose year desired for information
       selectInput('year.var', 'Select a Year', 
                   choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
       )
@@ -52,10 +56,13 @@ shinyUI(navbarPage("HIV Data",
       plotlyOutput("map")
     )
   ),
+  
+  #Shows linegraph of 4 points of infection trends over 15 year span (2000-2015)
   tabPanel(
     "HIV Infections Trends Per Country",
     titlePanel("HIV Infections Trends Per Country"),
      sidebarLayout(
+       #sidebar gives selection of all available country data
        sidebarPanel(
          uiOutput("allCountries")
        ),
@@ -65,11 +72,13 @@ shinyUI(navbarPage("HIV Data",
     )
   ),
  
+  #creates scatterplot comparing national GDP to HIV prevalence
   tabPanel(
     "HIV Infections VS. GDP",
     titlePanel("HIV Infections Trends Compare To GDP Per Country"),
     sidebarLayout(
       sidebarPanel(
+        #user can input desired year for information
         selectInput('test', 'Select a Year', 
                     choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
         )
@@ -79,11 +88,11 @@ shinyUI(navbarPage("HIV Data",
       )
     )
   ),
-
+  #make pie chart of countries in top 10 mortality
   tabPanel(
     'Highest Mortality Chart',
     titlePanel("Pie Chart of Top 10 Highest Recorded Mortality"),
-    
+    #user can input desired year for information
     sidebarPanel(
       selectInput('years', 'Select a Year', 
                   choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
