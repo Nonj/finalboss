@@ -2,7 +2,6 @@ makePieChart <- function(year.var){
   library(lazyeval)
   data <- arrange_(fixed.deaths, interp(~-name, name = as.name(paste0("X",year.var))))
   data <- data[1:10,]
-  View(data)
   p <- plot_ly(data, labels = ~Country, values = ~eval(parse(text = paste0("X",year.var))), type = 'pie',
            textposition = 'inside',
            textinfo = 'label',
