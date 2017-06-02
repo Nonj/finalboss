@@ -62,6 +62,22 @@ shinyUI(navbarPage("HIV Data",
          plotlyOutput('infections')
        )
     )
+  ),
+ 
+  tabPanel(
+    "HIV Infections VS. GDP",
+    titlePanel("HIV Infections Trends Compare To GDP Per Country"),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(inputId = 'year',
+                    label = 'Year',
+                    choices = c(2000, 2005, 2010, 2015),
+                    selected = '2000')
+      ),
+      mainPanel(
+        plotOutput('gdp')
+      )
+    )
   ) 
 ))
 

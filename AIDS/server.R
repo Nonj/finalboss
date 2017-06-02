@@ -12,6 +12,7 @@ source('../scripts/buildWorldMapDeaths.R')
 source('../scripts/buildWorldMapPrevalence.R')
 source('../scripts/cleanData.R')
 source('../scripts/makeLineGraph.R')
+source('../scripts/makeScatterPlot.R')
 
 #dataset for the HIV data
 gdp.data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv", stringsAsFactors = FALSE)
@@ -64,6 +65,10 @@ shinyServer(function(input, output) {
   
   output$allCountries <- renderUI({
     selectInput('country', 'Country', as.list(choices.for.countries), selected = 'Afghanistan') 
+  })
+  
+  output$gdp <- renderPlotly({
+    return(makeScatterPlot(fixed.new, input$year))
   })
   
 })
