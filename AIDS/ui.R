@@ -1,6 +1,13 @@
 # UI for Shiny 201 FINAL 
 
-choices.for.countries <- new.data %>% filter((X2015 + X2010 + X2005 + X2000) > 0) %>% select(Country)
+# LOADING DATA
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(rsconnect)
+library(shiny)
+library(gdata)
+library(qdap)
 
 # Define UI for application that draws a histogram
 shinyUI(navbarPage("HIV Data",
@@ -40,51 +47,20 @@ shinyUI(navbarPage("HIV Data",
                   choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
       )
     ),
-    
-    sidebarPanel( p("This world map visualization shows either the prevalence or amount of deaths per country throughout the world. 
-                    By hovering over each country you can see the data attached depending on the selection.")
-    ),
     mainPanel(
       plotlyOutput("map")
     )
   ),
   tabPanel(
     "HIV Infections Trends Per Country",
-    titlePanel("HIV Infection Trends Per Country"),
+    titlePanel("HIV Infections Trends Per Country"),
      sidebarLayout(
        sidebarPanel(
-         selectInput(inputId = 'country',
-                     label = 'Country',
-                     choices = choices.for.countries,
-                     selected = 'Afghanistan')
-       ),
-       sidebarPanel(
-         p("This visualization shows the trends of infection throughout the decade of 2015. Each country can be selected
-           and the trend will be shown through the line plot. ")
+         uiOutput("allCountries")
        ),
        mainPanel(
-         plotlyOutput("infections")
+         plotlyOutput('infections')
        )
-       )
-  ),
-  tabPanel(
-    "Infection rate compare to GDP",
-    titlePanel("HIV Infection Prevalency Compared to Countries GDP"),
-    sidebarLayout(
-      sidebarPanel(
-        selectInput(inputId = 'top',
-                    label = 'Top X Countries',
-                    choices = c(3, 5, 7),
-                    selected = '3')
-      ),
-      sidebarPanel(
-        p("Looking at the countries in the data, we may be able to find some similarities between those with certain
-          levels of prevalence. For this barplot, the prevalence of infection is compared to the GDP of the countries
-          depending on the 3, 5, or 7 countries with the highest prevalence. ")
-      ),
-      mainPanel(
-        plotlyOutput("gdp")
-      )
     )
   ) 
 ))

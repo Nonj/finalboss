@@ -1,7 +1,7 @@
 buildWorldMapDeaths <- function(data.var, year.var){
   
   # light yellow boundaries between countries
-  l <- list(color = toRGB("white"), width = .75)
+  l <- list(color = 'grey8', width = .75)
   
   # specify map details
   g <- list(
@@ -10,7 +10,7 @@ buildWorldMapDeaths <- function(data.var, year.var){
     projection = list(type = 'Mercator')
   )
   
-  makeMap <- plot_geo(deaths.data) %>%
+  makeMap <- plot_geo(fixed.deaths) %>%
     add_trace(
       z = ~eval(parse(text = paste0("X",year.var))), color = ~eval(parse(text = paste0("X",year.var))), colors = 'Purples',
       text = ~Country, locations = ~CODE, marker = list(line = l)
