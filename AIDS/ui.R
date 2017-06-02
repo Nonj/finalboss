@@ -8,6 +8,7 @@ library(rsconnect)
 library(shiny)
 library(gdata)
 library(qdap)
+library(lazyeval)
 
 # Define UI for application that draws a histogram
 shinyUI(navbarPage("HIV Data",
@@ -69,15 +70,29 @@ shinyUI(navbarPage("HIV Data",
     titlePanel("HIV Infections Trends Compare To GDP Per Country"),
     sidebarLayout(
       sidebarPanel(
-        selectInput(inputId = 'year',
-                    label = 'Year',
-                    choices = c(2000, 2005, 2010, 2015),
-                    selected = '2000')
+        selectInput('test', 'Select a Year', 
+                    choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
+        )
       ),
       mainPanel(
-        plotOutput('gdp')
+        plotlyOutput('gdp')
       )
     )
-  ) 
+  ),
+
+  tabPanel(
+    'Highest Mortality Chart',
+    titlePanel("Pie Chart of Top 15 Highest Recorded Mortality"),
+    
+    sidebarPanel(
+      selectInput('years', 'Select a Year', 
+                  choices = c("2000" = 2000, "2005" = 2005, "2010" = 2010, "2015" = 2015)
+      )
+    ),
+    mainPanel(
+      plotlyOutput("pie")
+    )
+  )
+
 ))
 
