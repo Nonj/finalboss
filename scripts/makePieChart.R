@@ -15,4 +15,5 @@ makePieChart <- function(year.var){
     layout(title = 'HIV Death Pie Chart',
            xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
            yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+  p
 }
