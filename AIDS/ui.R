@@ -82,7 +82,7 @@ shinyUI(navbarPage("HIV Data",
 
   tabPanel(
     'Highest Mortality Chart',
-    titlePanel("Pie Chart of Top 15 Highest Recorded Mortality"),
+    titlePanel("Pie Chart of Top 10 Highest Recorded Mortality"),
     
     sidebarPanel(
       selectInput('years', 'Select a Year', 
