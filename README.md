@@ -9,7 +9,7 @@
 
 ## Our Project:
 For our final project, we decided to focus on HIV throughout the world and its prevalence in each country over the years of 2000-2015. The goal was to use statistical analysis, data wrangling, and visualizations to properly express the answers to the questions we had coming into this project.
-Using R and shiny, we created an app that can be seen [here](https://rayz2007.shinyapps.io/AIDS/)
+Using R and shiny, we created an app that can be seen [here](https://jarumm.shinyapps.io/finalboss/)
 
 The visualizations shown throughout the application answer several questions:
 
