@@ -10,7 +10,7 @@ g <- list(
   projection = list(type = 'Mercator')
 )
 
-makeMap <- plot_geo(fixed.prevalence) %>%
+makeMap <- plot_geo(prevalance.data) %>%
   add_trace(
     z = ~eval(parse(text = paste0("X",year.var))), color = ~eval(parse(text = paste0("X",year.var))), colors = 'Blues',
     text = ~Country, locations = ~CODE, marker = list(line = l)

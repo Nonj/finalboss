@@ -2,7 +2,7 @@
 makePieChart <- function(year.var){
   
   #sorting data from most deaths to least deaths in the inputted year
-  data <- arrange_(fixed.deaths, interp(~-name, name = as.name(paste0("X",year.var))))
+  data <- arrange_(deaths.data, interp(~-name, name = as.name(paste0("X",year.var))))
   #grabbing top 10 most deaths
   data <- data[1:10,]
   

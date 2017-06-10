@@ -1,6 +1,6 @@
 # UI for Shiny 201 FINAL 
 
-# LOADING DATA
+# LOADING DATA and LIBRARIES
 library(dplyr)
 library(ggplot2)
 library(plotly)
@@ -9,6 +9,7 @@ library(shiny)
 library(gdata)
 library(qdap)
 library(lazyeval)
+
 
 # Define UI for application that draws a histogram
 shinyUI(navbarPage("HIV Data",

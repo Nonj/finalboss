@@ -1,3 +1,0 @@
-makeBarPlot <- function(data){
-
-}
